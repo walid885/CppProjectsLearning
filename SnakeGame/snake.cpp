@@ -80,19 +80,37 @@ void Input()
             break;
     }
 }
-
 void Logic ()
 {
+    switch (dir)
+    {
+    case LEFT :
+        x--;
+        break;
+        case RIGHT :
+        x++;
+        break;
+        case UP :
+        y--;
+        break;
+        case DOWN :
+        y++;
+        break;
+    
+    default:
+        break;
+    }
 
 }
 int main (){
- Setup(); 
- while(! GameOver ) {
-    Draw(); 
-    Input();
-    Logic();
-    //sleep(10); //to slow game 
- }
+    Setup(); 
+    while(! GameOver ) {
+        Draw(); 
+        Input();
+        Logic();
+        //sleep(10); //to slow game 
+    }
  
     return 0 ; 
 }
+
