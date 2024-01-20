@@ -1,11 +1,12 @@
 #include <iostream>
 #include <conio.h>
+#include<ncurses.h>
 using namespace std ; 
 bool GameOver ; 
 const int width = 20 ; 
 const int height = 20 ; 
 int x,y, fruitX, fruitY , score ; 
-enum Edirction {Stop = 0 , Left , right, up , down}; 
+enum Edirction {Stop = 0 , LEFT , RIGHT, UP , DOWN}; 
 Edirction  dir ; 
 
 void Setup()
@@ -59,20 +60,27 @@ void Draw ()
 }
 void Input()
 {
-    if (kbhit()){
-
-     switch (_getche())
-     {
-     case 'a': 
-        dir= left; 
-        break;
-
-     default:
-        break;
-     }   
+    int ch = getch();
+    switch (ch)
+    {
+        case 'a': 
+            dir = LEFT; 
+            break;
+        case 'd': 
+            dir = RIGHT; 
+            break;
+        case 'w': 
+            dir = UP; 
+            break;
+        case 's': 
+            dir = DOWN; 
+            break;
+        case 'q': 
+            GameOver = true;
+            break;
     }
-
 }
+
 void Logic ()
 {
 
